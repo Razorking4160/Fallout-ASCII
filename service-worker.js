@@ -86,6 +86,7 @@
 /* 0.61.2: separate repository and deployment; the stage script checks APP_FILES. */
 /* 0.61.3: production deployment published at the canonical URL. */
 /* 0.61.4: Route 9 and pumphouse maps, two repair jobs, a working ruins exit, and text maps packed at boot. */
+/* 0.61.5: Route 9 and pumphouse encounter and loot balance pass. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;

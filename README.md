@@ -615,7 +615,9 @@ multi-megabyte JSON file.
 - **The road east:** the ruins' east exit opens onto **Route 9**, a rain-swept bypass
   whose middle span is broken, and its far end leads into the **Flooded Pumphouse** that
   the market draws its water from. The broken span is solid until repaired: people can
-  walk around it, carts cannot.
+  walk around it, carts cannot. Road packs and a raider gunner hold the crossing, with an
+  ammo cache and a repair kit beside the span; the dark pump room is guarded by a
+  mirelurk and a ghoul, and its maintenance corners hold a kit, RadAway and bobby pins.
 - **Overworld travel** (Pip-Boy MAP) lists every place you have visited, the roads
   between them, and the hours each trip takes. Time passes on the game clock, and a
   road encounter can follow you in on arrival; Outdoorsman shortens the trip, lowers
@@ -1696,7 +1698,9 @@ a floor tile. These are converted to the layered format once at boot. The shippe
 **Wasteland Ruins** includes Keeper Ada in the old market and a broken generator in the
 east hall for the *Power in the Ruins* quest, plus a radscorpion matriarch in the east
 chamber. **Route 9** carries the broken span for *The Bypass Span*, and the **Flooded
-Pumphouse** holds the seized intake for *Clean Water*.
+Pumphouse** holds the seized intake for *Clean Water*. Both maps are balanced for a
+level 3–4 character: clearing the bypass costs about half a level-3 player's health and
+fifteen or so rounds, and the pumphouse mirelurk is a real fight rather than a formality.
 
 ### Layered map format (v2)
 
