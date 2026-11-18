@@ -116,6 +116,10 @@ can serve `dist/` unchanged, because every path in the app is relative; it there
 works under a subpath. To redeploy, stage, upload `dist/` with `deploy.json`, and bump
 `js/data/version.js` plus the service-worker changelog first so installed copies update.
 
+Two checks run without a browser: `node tools/check-maps.js` validates every shipped
+map's geometry, exits and overworld links, and `tools/check-studio-sync.sh [studio-dir]`
+reports any shared runtime file that has drifted from the studio's copy.
+
 **Live:** <https://wasteland-ascii-dswq78.freebuff.site>
 
 ---
@@ -608,6 +612,10 @@ multi-megabyte JSON file.
 - **Travel:** exit tiles are linked per map (`exits: {"x,y": "mapid"}`). Arriving puts
   you beside the exit that leads back where you came from. Crossing maps preserves your
   whole character and each map's local state (dead enemies, taken loot, explored fog).
+- **The road east:** the ruins' east exit opens onto **Route 9**, a rain-swept bypass
+  whose middle span is broken, and its far end leads into the **Flooded Pumphouse** that
+  the market draws its water from. The broken span is solid until repaired: people can
+  walk around it, carts cannot.
 - **Overworld travel** (Pip-Boy MAP) lists every place you have visited, the roads
   between them, and the hours each trip takes. Time passes on the game clock, and a
   road encounter can follow you in on arrival; Outdoorsman shortens the trip, lowers
@@ -1345,7 +1353,7 @@ add a job:
   unknown items, enemies, skills or factions, bad rewards, outcomes that are never
   offered and jobs that no dialogue hands out. It runs at boot (console) and from
   **Forge → Validate content**, which prints the report in the export box. A clean build
-  reports `Content check OK — 9 quests, 8 dialogue trees, 56 pages`.
+  reports `Content check OK — 11 quests, 8 dialogue trees, 58 pages`.
 
 **In-game authoring.** **Forge → Author a job & its dialogue** writes the same content
 without touching a file: name, id (generated from the name unless you type one), giver,
@@ -1441,8 +1449,8 @@ mood (see **PARTY**).
 Turning in **Silence the Sentinel** is the campaign's final beat. The epilogue opens
 immediately and is stored in the save; **DATA → ENDING → Read** replays it. With Bloody
 Mess the first three paragraphs are replaced by the gore variant, which is the trait's
-original ending consequence. The other quests, *Spare Cells*, *Power in the Ruins* and
-*Blood on the Road*, remain optional side work and do not gate the ending.
+original ending consequence. The other quests, *Spare Cells*, *Power in the Ruins*, *Blood on the Road*, *The Bypass Span* and
+*Clean Water* remain optional side work and do not gate the ending.
 
 The epilogue then adds two paragraphs from the state at turn-in: one for karma (Very
 Good through Very Bad, including Neutral) and one for the faction with the highest
@@ -1684,9 +1692,11 @@ ID-based. The symbol is only a display glyph now.
 
 `GAME.maps` can still be written as text rows: one character per cell, where `# . + / T
 ~ >` are tiles, `@` is the player start, and any entity or item symbol places a thing on
-a floor tile. These are converted to the layered format at load. The shipped **Wasteland
-Ruins** includes Keeper Ada in the old market and a broken generator in the east hall for
-the *Power in the Ruins* quest, plus a radscorpion matriarch in the east chamber.
+a floor tile. These are converted to the layered format once at boot. The shipped
+**Wasteland Ruins** includes Keeper Ada in the old market and a broken generator in the
+east hall for the *Power in the Ruins* quest, plus a radscorpion matriarch in the east
+chamber. **Route 9** carries the broken span for *The Bypass Span*, and the **Flooded
+Pumphouse** holds the seized intake for *Clean Water*.
 
 ### Layered map format (v2)
 
@@ -1700,7 +1710,7 @@ the *Power in the Ruins* quest, plus a radscorpion matriarch in the east chamber
   "rows": ["########################", "#.....>....##....##....#"],
   "legend": { "#": "wall", ".": "floor", ">": "exit" },
   "things": [["rust_sentinel", 17, 10], ["caps", 6, 12]],
-  "exits": { "6,1": "outskirts" },
+  "exits": { "8,1": "outskirts" },
   "start": [1, 1]
 }
 ```

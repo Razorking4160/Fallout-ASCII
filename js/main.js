@@ -334,6 +334,8 @@
       WA.baked.apply(WA.AUTHORED_DEFS);
       WA.baked.applyMaps(WA.AUTHORED);
     }
+    // Pack the hand-written text maps once, before any system reads them.
+    if (WA.maps && WA.maps.normalize) WA.maps.normalize();
     WA.authored.apply();
 
     if (WA.pack) {
