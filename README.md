@@ -116,7 +116,7 @@ can serve `dist/` unchanged, because every path in the app is relative; it there
 works under a subpath. To redeploy, stage, upload `dist/` with `deploy.json`, and bump
 `js/data/version.js` plus the service-worker changelog first so installed copies update.
 
-**Live:** <https://wasteland-ascii-dswq78-preview.freebuff.site>
+**Live:** <https://wasteland-ascii-dswq78.freebuff.site>
 
 ---
 

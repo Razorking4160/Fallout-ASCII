@@ -84,6 +84,7 @@
 /* 0.61.0: the game and studio are separate apps; content packs and baked definitions. */
 /* 0.61.1: game boot applies shipped authored maps; pack checks need shipped dialogue NPCs. */
 /* 0.61.2: separate repository and deployment; the stage script checks APP_FILES. */
+/* 0.61.3: production deployment published at the canonical URL. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
