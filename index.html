@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wasteland ASCII</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#040904">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wasteland">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/terminal.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+<div id="app">
+  <div id="play">
+  <div id="bar"></div>
+  <div id="updatebar" hidden><span id="updatetext">A new build is ready.</span><button id="updatebtn">Reload</button></div>
+  <div id="modalback" hidden></div>
+  <div id="menu" hidden></div>
+  <div id="pip" hidden></div>
+  <div id="chargen" hidden></div>
+  <div id="crt"><div id="screen"></div><canvas id="weather" aria-hidden="true"></canvas></div>
+  <div id="log"></div>
+  <div id="vats" hidden></div>
+  <div id="dlg" hidden></div>
+  <div id="trade" hidden></div>
+  <div id="pick" hidden></div>
+  <div id="loot" hidden></div>
+  <div id="lock" hidden></div>
+  <div id="hack" hidden></div>
+  <div id="gamble" hidden></div>
+  <div id="ending" hidden></div>
+  <div id="death" hidden></div>
+  <div id="pad">
+    <button class="small" data-k="pip">Pip-Boy</button>
+    <button class="small" data-k="wait">Wait</button>
+    <button class="small" data-k="fire" id="firebtn">Fire</button>
+    <button class="small" data-k="vats" id="vatsbtn">VATS</button>
+    <span></span>
+    <button data-d="0,-1" aria-label="Up">▲</button>
+    <span></span>
+    <span></span>
+    <button data-d="-1,0" aria-label="Left">◀</button>
+    <button data-d="0,1" aria-label="Down">▼</button>
+    <button data-d="1,0" aria-label="Right">▶</button>
+    <button class="small" data-k="throw" id="throwbtn">Throw</button>
+  </div>
+  </div>
+  </div>
+
+<script src="js/storage/settings.js"></script>
+<script src="js/engine/util.js"></script>
+<script src="js/data/version.js"></script>
+<script src="js/systems/scale.js"></script>
+<script src="js/data/game-data.js"></script>
+<script src="js/data/defs-authored.js"></script>
+<script src="js/data/quests-authored.js"></script>
+<script src="js/data/maps-authored.js"></script>
+<script src="js/data/symbols.js"></script>
+<script src="js/engine/visibility.js"></script>
+<script src="js/systems/time.js"></script>
+<script src="js/engine/lighting.js"></script>
+<script src="js/engine/pathfinding.js"></script>
+<script src="js/engine/world.js"></script>
+<script src="js/systems/baked.js"></script>
+<script src="js/engine/weather.js"></script>
+<script src="js/engine/renderer.js"></script>
+<script src="js/systems/limbs.js"></script>
+<script src="js/systems/skills.js"></script>
+<script src="js/systems/perks.js"></script>
+<script src="js/systems/traits.js"></script>
+<script src="js/systems/character.js"></script>
+<script src="js/systems/inventory.js"></script>
+<script src="js/systems/field.js"></script>
+<script src="js/systems/loot.js"></script>
+<script src="js/systems/lockpick.js"></script>
+<script src="js/systems/hacking.js"></script>
+<script src="js/systems/gambling.js"></script>
+<script src="js/systems/party.js"></script>
+<script src="js/systems/damage.js"></script>
+<script src="js/systems/rads.js"></script>
+<script src="js/systems/weapons.js"></script>
+<script src="js/systems/status.js"></script>
+<script src="js/systems/addiction.js"></script>
+<script src="js/systems/combat.js"></script>
+<script src="js/systems/vats.js"></script>
+<script src="js/systems/quests.js"></script>
+<script src="js/systems/reputation.js"></script>
+<script src="js/systems/authored.js"></script>
+<script src="js/storage/content-pack.js"></script>
+<script src="js/systems/dialogue.js"></script>
+<script src="js/systems/ending.js"></script>
+<script src="js/engine/ai.js"></script>
+<script src="js/engine/turn.js"></script>
+<script src="js/storage/save-manager.js"></script>
+<script src="js/systems/death.js"></script>
+<script src="js/systems/menu.js"></script>
+<script src="js/systems/overworld.js"></script>
+<script src="js/systems/rest.js"></script>
+<script src="js/systems/schedule.js"></script>
+<script src="js/systems/trade.js"></script>
+<script src="js/systems/bounty.js"></script>
+<script src="js/systems/pickpocket.js"></script>
+<script src="js/systems/pipboy.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
