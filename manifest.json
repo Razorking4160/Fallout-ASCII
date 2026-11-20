@@ -1,6 +1,6 @@
 {
-  "name": "Wasteland ASCII",
-  "short_name": "Wasteland",
+  "name": "Fallout ASCII",
+  "short_name": "Fallout",
   "description": "A post-apocalyptic ASCII RPG",
   "id": "./",
   "start_url": "./index.html",

@@ -1,11 +1,11 @@
-# Wasteland ASCII — game
+# Fallout ASCII — game
 
 A small, complete post-apocalyptic roguelike that runs entirely in the browser as one
 static page: no build step, no bundler, no dependencies, no server logic. You crawl a
 vault, the outskirts and the ruins, fight radroaches and robots, manage radiation,
 condition, ammo and caps, and talk your way through three small quest lines.
 
-**This is the game app only.** Wasteland Studio — the map editor, Forge, job authoring
+**This is the game app only.** G.E.C.K. — the map editor, Forge, job authoring
 and save benchmark — is a separate app with its own deployment and repository. The
 editor sections below describe that app; use them there, then bring the result over as
 a content pack or as generated data files. See **Content packs** on this page and the

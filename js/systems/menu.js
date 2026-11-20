@@ -38,7 +38,7 @@
     U.setHtml('menu',
       `<div class="menu-inner menu-home">` +
       `<div class="menu-kicker">VAULT 13 · 2161</div>` +
-      `<div class="menu-title">WASTELAND</div>` +
+      `<div class="menu-title">FALLOUT ASCII</div>` +
       `<div class="menu-sub">A post-nuclear ASCII journey</div>` +
       `<div class="menu-actions">${menuButton('load', 'Load')}${menuButton('new', 'New game')}${menuButton('options', 'Options')}${WA.pack ? menuButton('packs', 'Content packs') : ''}</div>` +
       `<div class="menu-foot">Build v${U.esc(WA.VERSION || '0')} · offline-ready</div></div>`);
@@ -139,7 +139,7 @@
       `<label class="menu-option"><span>From URL</span><span><input id="packurl" placeholder="https://…" style="width:160px"> ` +
       `<button type="button" data-menu="packurl">Load</button></span></label>` +
       `<div id="menuMsg" class="menu-msg"></div>` +
-      `<div class="menu-foot">A pack from Wasteland Studio adds authored maps, items, enemies and jobs. It is stored on this device and stays available offline.</div></div>`);
+      `<div class="menu-foot">A pack from G.E.C.K. adds authored maps, items, enemies and jobs. It is stored on this device and stays available offline.</div></div>`);
   }
 
   function optionRow(id, label, on) {
