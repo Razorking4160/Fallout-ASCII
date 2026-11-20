@@ -234,16 +234,11 @@ A release does not need a pack: the studio's **Export definitions for game** and
 
 ## Controls
 
-The game is portrait-only. The manifest asks an installed copy to stay upright, and a
-phone held sideways gets a rotate notice instead of a squeezed board; the column count
-still follows the width, so a narrow phone shows a smaller window of the map rather than
-tiny cells.
-
 Keyboard (Play tab, when focus is not in a text field):
 
 | Key | Action |
 | --- | --- |
-| Arrow keys / `W A S D` | Move or attack one step; you turn that way, and your glyph leans that way |
+| Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the chevron on the edge of your cell points that way |
 | Space | Wait one turn |
 | `H` | Use a Stimpak |
 | `R` | Use RadAway |

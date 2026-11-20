@@ -96,6 +96,7 @@
 /* 0.64.2: fit the grid to the shell and draw facing as a readable arrow. */
 /* 0.64.3: refit on rotation, fewer columns on phones, facing as an edge bar. */
 /* 0.64.4: portrait only, and the glyph itself leans toward its facing. */
+/* 0.64.5: landscape back, bigger cells, facing as an ASCII chevron. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
