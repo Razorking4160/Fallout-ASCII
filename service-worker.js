@@ -102,6 +102,7 @@
 /* 0.64.8: terminals refuse an unlaid screen, packs reject bad placements, fingerprint cached. */
 /* 0.64.9: one damage path for player hits and one for enemies; companions scale with difficulty. */
 /* 0.64.10: deliveries count carried supplies, pockets grey out during the fumble wait, shelves use the shared steal roll, dialogue caps stop at zero. */
+/* 0.64.11: dead-entity and dead-export cleanup, boolean sneak flag, container-only lock opening and a one-time legacy save scan. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
