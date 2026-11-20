@@ -92,6 +92,7 @@
 /* 0.62.0: terrain encounter tables per region, with weighted pools and danger multipliers. */
 /* 0.63.0: theft consequences need a witness; the encounter tables lose a layer of indirection. */
 /* 0.64.0: fumbles cost a turn, witnesses act, and facing shows on the grid. */
+/* 0.64.1: even the cell spacing and paint the facing caret on every NPC. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
