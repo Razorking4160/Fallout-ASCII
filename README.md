@@ -238,7 +238,7 @@ Keyboard (Play tab, when focus is not in a text field):
 
 | Key | Action |
 | --- | --- |
-| Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the caret on your cell shows it |
+| Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the bar on the edge of your cell shows it |
 | Space | Wait one turn |
 | `H` | Use a Stimpak |
 | `R` | Use RadAway |

@@ -94,6 +94,7 @@
 /* 0.64.0: fumbles cost a turn, witnesses act, and facing shows on the grid. */
 /* 0.64.1: even the cell spacing and paint the facing caret on every NPC. */
 /* 0.64.2: fit the grid to the shell and draw facing as a readable arrow. */
+/* 0.64.3: refit on rotation, fewer columns on phones, facing as an edge bar. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
