@@ -103,6 +103,7 @@
 /* 0.64.9: one damage path for player hits and one for enemies; companions scale with difficulty. */
 /* 0.64.10: deliveries count carried supplies, pockets grey out during the fumble wait, shelves use the shared steal roll, dialogue caps stop at zero. */
 /* 0.64.11: dead-entity and dead-export cleanup, boolean sneak flag, container-only lock opening and a one-time legacy save scan. */
+/* 0.64.12: one modal registry now owns the panel list, pause check, backdrop and Escape routing. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
@@ -134,6 +135,7 @@ const APP_FILES = [
   "./js/engine/pathfinding.js",
   "./js/engine/renderer.js",
   "./js/engine/turn.js",
+  "./js/engine/ui.js",
   "./js/engine/util.js",
   "./js/engine/visibility.js",
   "./js/engine/weather.js",
