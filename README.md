@@ -619,10 +619,14 @@ multi-megabyte JSON file.
   ammo cache and a repair kit beside the span; the dark pump room is guarded by a
   mirelurk and a ghoul, and its maintenance corners hold a kit, RadAway and bobby pins.
 - **Overworld travel** (Pip-Boy MAP) lists every place you have visited, the roads
-  between them, and the hours each trip takes. Time passes on the game clock, and a
-  road encounter can follow you in on arrival; Outdoorsman shortens the trip, lowers
-  the chance of trouble and can slip you past an ambush. Routes only cross places you
-  have already visited, and travel is refused while enemies are within three tiles.
+  between them, the hours each trip takes and the terrain that road runs through. Time
+  passes on the game clock, and a road encounter can follow you in on arrival;
+  Outdoorsman shortens the trip, lowers the chance of trouble and can slip you past an
+  ambush. Each terrain — the vault approach, the open road, the bypass, the ruins, the
+  flooded ground — has its own weighted table of trouble and its own danger multiplier,
+  mixed with the regulars of the place you are heading to, so the ruins and the
+  pumphouse are worse ground than open road. Routes only cross places you have already
+  visited, and travel is refused while enemies are within three tiles.
 - Maps smaller than the viewport are shown at their real size; larger ones scroll with
   the camera.
 

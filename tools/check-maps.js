@@ -5,7 +5,8 @@
  * discovers while playing: every map has a start, rows are the same width,
  * every text-map character is a known tile/entity/item, exits sit on an exit
  * tile and lead to a real map, placed things are inside the grid, and the
- * overworld nodes and routes reference maps that exist.
+ * overworld nodes and routes reference maps that exist, and every terrain table
+ * names real enemies with positive weights.
  *
  *   node tools/check-maps.js
  */
@@ -94,6 +95,29 @@ for (const id of Object.keys(nodes)) {
   const n = nodes[id] || {};
   if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) note('world', `node "${id}" has no chart position`);
   if (n.x < 0 || n.x >= 22 || n.y < 0 || n.y >= 8) note('world', `node "${id}" is off the 22x8 chart`);
+}
+// Terrain tables: every node that names one must find it, and every pool must
+// point at real enemies with a positive weight, or travel silently goes quiet.
+const terrains = world.terrains || {};
+for (const id of Object.keys(nodes)) {
+  const n = nodes[id] || {};
+  if (n.terrain && !terrains[n.terrain]) note('world', `node "${id}" names unknown terrain "${n.terrain}"`);
+  for (const e of (Array.isArray(n.road) ? n.road : [])) {
+    if (!GAME.entities[e]) note('world', `node "${id}" lists unknown road enemy "${e}"`);
+  }
+}
+for (const id of Object.keys(terrains)) {
+  const t = terrains[id] || {};
+  if (!t.name) note('world', `terrain "${id}" has no name`);
+  if (!(t.danger > 0)) note('world', `terrain "${id}" has no danger multiplier`);
+  const pool = Array.isArray(t.pool) ? t.pool : [];
+  if (!pool.length) note('world', `terrain "${id}" has an empty encounter pool`);
+  for (const row of pool) {
+    const e = Array.isArray(row) ? row[0] : row;
+    const w = Array.isArray(row) ? row[1] : 1;
+    if (!GAME.entities[e]) note('world', `terrain "${id}" pools unknown enemy "${e}"`);
+    if (!(w > 0)) note('world', `terrain "${id}" gives "${e}" no encounter weight`);
+  }
 }
 const seenNodes = new Set();
 for (const r of world.routes || []) {

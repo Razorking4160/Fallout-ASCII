@@ -89,6 +89,7 @@
 /* 0.61.5: Route 9 and pumphouse encounter and loot balance pass. */
 /* 0.61.6: the game is named Fallout ASCII, with a new CRT vault-boy icon set. */
 /* 0.61.7: the original vault-boy icon uploads ship as-is; packs credit G.E.C.K. */
+/* 0.62.0: terrain encounter tables per region, with weighted pools and danger multipliers. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
