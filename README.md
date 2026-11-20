@@ -238,7 +238,7 @@ Keyboard (Play tab, when focus is not in a text field):
 
 | Key | Action |
 | --- | --- |
-| Arrow keys / `W A S D` | Move or attack one step |
+| Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the caret on your cell shows it |
 | Space | Wait one turn |
 | `H` | Use a Stimpak |
 | `R` | Use RadAway |
@@ -1235,8 +1235,11 @@ line, with distance, light and a crouch deciding whether a bystander notices. A
 witnessed catch loses a point of trust with that trader, costs a fine (20 caps, rising
 by 10 for each earlier catch there, capped by what you carry), shuts the stall for the
 rest of the day, and every merchant's Steal difficulty rises with your notoriety (up to
-3). A fumble nobody saw costs only the attempt. Merchants never buy back their own
-stolen stock; other stalls will, and the mark wears off as those units are sold.
+3). A fumble nobody saw costs no standing, but it does cost time: that shelf, pocket or
+box refuses another attempt until the world has taken one more turn. A bystander who
+raises the alarm also acts on it — a trader shouts for the watch and a watchman arrives,
+anyone else turns on you where they stand. Merchants never buy back their own stolen
+stock; other stalls will, and the mark wears off as those units are sold.
 
 **Companions.** Two people can travel with you, chosen from three recruits. Rook waits
 in the ruins market (melee brawler, 34 HP) and Vera walks the outskirts road (rifle,
@@ -1299,10 +1302,13 @@ like Mira's switchblade) is much harder to lift. A catch costs a point of trust 
 point of notoriety; a trader also fines you and shuts the stall for the rest of the
 day, while anyone else keeps their distance until tomorrow, and the panel shows the
 block until it lapses. Both panels name who can see you, so you know whether a fumble
-will be noticed. The same roll covers owned containers: Mira's Cache in the outskirts
-and the Market Lockbox in the ruins are marked **OWNED**, show a Steal chance on every
-item and name their watchers, and an unwatched fumble leaves the box open to another
-try — only a witnessed catch refuses all taking for the day. Stolen
+will be noticed, and an unwatched fumble makes you wait a turn before that pocket or box
+can be tried again. An owner whose back is turned is 8 points easier to reach past, and
+turning your own back on a watcher hides your hands. The same roll covers owned
+containers: Mira's Cache in the outskirts and the Market Lockbox in the ruins are marked
+**OWNED**, show a Steal chance on every item and name their watchers, and an unwatched
+fumble leaves the box open after that wait — only a witnessed catch refuses all taking
+for the day. Stolen
 pocket and container goods use the same `S.hot` marks, show as **stolen** in INV, and
 cannot be sold back to their owner. In the Forge an NPC's `carry` and `held` lists
 plus `watch` value set their pockets; a container's `owner` field marks it as owned,
@@ -1892,7 +1898,7 @@ the editors and `main.js`.
 | Field repair | FIELD KIT, 2 AP; Repair check scales with missing condition; restores `5 + Repair/8`; kits remain reliable |
 | World repair | FIELD KIT, 2 AP; repairs nearby tiles with `repair` set; optional `repairNeed` item is consumed on success |
 | Traps | Scan 1 AP at difficulty 20; disarm 2 AP at `20 + hurt×3` (cap 60); failure triggers the trap |
-| Sneak | Toggle on FIELD KIT; enemies make a Sneak check against their sight at range; environmental light and recent movement affect detection; unaware melee attacks deal ×2 damage |
+| Sneak | Toggle on FIELD KIT; enemies make a Sneak check against their sight at range; environmental light, recent movement and facing affect detection (a turned back is harder to spot); unaware melee attacks deal ×2 damage |
 | Level cap | 100 |
 | XP to level | `round(20 + 14×lvl + 6×lvl^1.75)`; 40 at lvl 1, 20,394 at lvl 99 |
 | Total XP to 100 | 751,770 |
