@@ -101,6 +101,7 @@
 /* 0.64.7: closed shops refuse ammo sales, watchmen scale, and copy fixes. */
 /* 0.64.8: terminals refuse an unlaid screen, packs reject bad placements, fingerprint cached. */
 /* 0.64.9: one damage path for player hits and one for enemies; companions scale with difficulty. */
+/* 0.64.10: deliveries count carried supplies, pockets grey out during the fumble wait, shelves use the shared steal roll, dialogue caps stop at zero. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
