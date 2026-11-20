@@ -99,6 +99,7 @@
 /* 0.64.5: landscape back, bigger cells, facing as an ASCII chevron. */
 /* 0.64.6: square cells again and a dark palette that ignores the OS theme. */
 /* 0.64.7: closed shops refuse ammo sales, watchmen scale, and copy fixes. */
+/* 0.64.8: terminals refuse an unlaid screen, packs reject bad placements, fingerprint cached. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
