@@ -113,6 +113,7 @@
 /* 0.65.4: bodies slide between cells and the world turn opens on its own beat. */
 /* 0.65.5: the world turn is slower, so each step lands and rests before the next. */
 /* 0.66.0: skip the rest of a world turn with '.', and a Slow/Normal/Fast pace setting. */
+/* 0.67.0: muzzle flashes, hit flashes, floating damage numbers and death bursts. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
