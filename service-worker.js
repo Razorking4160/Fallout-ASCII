@@ -111,6 +111,7 @@
 /* 0.65.2: the enemy phase plays one action per beat so movement is visible; input waits for it. */
 /* 0.65.3: paced companion turns, and a load or new game cancels a phase in flight. */
 /* 0.65.4: bodies slide between cells and the world turn opens on its own beat. */
+/* 0.65.5: the world turn is slower, so each step lands and rests before the next. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;

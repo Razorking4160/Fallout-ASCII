@@ -285,7 +285,7 @@ only: no rule reads a frame clock.
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
 - **You can watch the world move.** When your AP runs out, the world's turn plays one
-  action at a time, about a seventh of a second apart, redrawing the map and log between
+  action at a time, about a third of a second apart, redrawing the map and log between
   them: a raider crossing four tiles walks them instead of jumping, and companions move
   in the same beat once the enemies are done. Your own move gets that beat to itself
   first, and every body that changes cell slides in from where it was, so even a move
