@@ -1161,7 +1161,11 @@ VATS, ending and death screens all open as fixed panels over the map, with a dar
 backdrop and their own internal scrolling, so they never push the map down the page.
 Every dismissible panel has a visible `×` close control, and tapping the backdrop also
 closes it. Character creation and the death screen are deliberately blocking: they need
-a trait choice or a load/restart decision before play resumes. Eight tabs:
+a trait choice or a load/restart decision before play resumes. The panel opens to the full
+height of the screen, so every tab fills the same frame: the tab bar stays put and the
+body scrolls under it. Each screen is split into labelled dashed groups (LEVEL, VITALS,
+REPUTATION, SPECIAL, SAVES…) with a dotted rule between the rows inside a group, so a
+long list reads as blocks instead of one wall of text. Eight tabs:
 
 ### STAT
 Your name, age and gender over a small ASCII portrait, with the paper doll beside it:

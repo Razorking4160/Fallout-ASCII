@@ -121,6 +121,7 @@
 /* 0.71.0: a synthesised title theme on the boot menu, hung off the shared sound bus. */
 /* 0.72.0: a quieter music track for play, cross-fading with the title theme. */
 /* 0.73.0: a Pip-Boy portrait with an armour, weapon and limb paper doll, and Sound hints that name the music. */
+/* 0.74.0: every Pip-Boy tab fills the screen, with labelled sections and dotted row rules. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
