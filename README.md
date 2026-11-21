@@ -276,7 +276,9 @@ The game is strictly turn-based; nothing is simulated on animation frames.
   clamped to 3–8 — and spends it in its turn: 1 per step, 4 per attack, and never more
   than one attack before you act again. A quick raider crosses five or six tiles while a
   slow one shuffles three. A knockdown or an enemy's `rate` cooldown still costs it the
-  whole turn. Your own pool (`6 + Agility`) stays larger, so you can still outrun them.
+  whole turn. A gunner spends that pool keeping a firing line rather than closing in —
+  see **Enemy movement** under Combat. Your own pool (`6 + Agility`) stays larger, so
+  you can still outrun them.
 - **Wait** gives up whatever AP is left: the world takes its turn at once and you start
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
@@ -820,6 +822,19 @@ and a possible jam, then hits with
 covers ordinary pistols/rifles, Energy Weapons covers lasers and plasma, and Big Guns
 covers heavy weapons. One Hander's +20/−40 applies through each weapon's `hands` field.
 A miss still costs the turn and the round.
+
+### Enemy movement
+
+A `ranged` enemy fights for its firing line, next to the player or a companion.
+Crowded at one tile with AP for both a step and a shot, it backs out to the roomiest
+free tile that still holds a line on its target — at least two tiles away, no farther
+than its own `range` — and shoots from there on the next pass of its pool. With AP for
+only the step or only the shot, it swings instead, so a spent or cornered gunner still
+trades blows. When a wall breaks the line it sidesteps to a neighbouring tile that can
+see the target rather than walking straight on, and once it has fired it holds that
+ground instead of advancing back to arm's length with its leftover AP. Turrets
+(`ai: "turret"`) never move; pursuing, wandering and the walk to a last-seen tile are
+unchanged.
 
 ### Burst fire and ammunition
 
