@@ -241,6 +241,7 @@ Keyboard (Play tab, when focus is not in a text field):
 | Key | Action |
 | --- | --- |
 | Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the chevron on the edge of your cell points that way |
+| `Shift` + a direction | Run one step: 2 AP instead of 1, and much louder while sneaking |
 | Space | Wait — give up the rest of your AP so the world takes its turn |
 | `H` | Use a Stimpak |
 | `R` | Use RadAway |
@@ -297,9 +298,10 @@ only: no rule reads a frame clock.
   screen, so you can change it mid-game). When a turn is taking too long, press
   `.` and the rest of it resolves at once — the remaining enemy and companion
   actions play out together and the board is painted once.
-- **Hits land visibly.** A ranged shot flashes at the muzzle, a struck cell flares
-  red, the damage floats up off it as a number — amber over anything you hit, red
-  over you — and a kill bursts where the body fell. All of it is decoration over
+- **Hits land visibly.** A ranged shot flashes at the muzzle, a melee swing traces
+  its arc over the attacker, a struck cell flares red, the damage floats up off it as
+  a number — amber over anything you hit, red over you — and a kill bursts where the
+  body fell, throwing chips when the blow was melee, energy or explosive. All of it is decoration over
   the board: the log still holds the record, and turning Animate off (or a system
   asking for reduced motion) drops the marks and leaves only the log. Input is held until the phase ends,
   exactly as an open panel holds it, so nothing can be spent mid-turn and the Pip-Boy,
@@ -532,9 +534,10 @@ refill AP and print the new time.
 widens the lock dial; Science adds terminal attempts; Barter improves buy and sell
 prices; Speech drives dialogue checks. The SKILL screen's **FIELD KIT** spends AP on First Aid
 (healing), Doctor (healing, poison, radiation and, with a Doctor's Bag, crippled limbs), Repair (condition without
-a kit or nearby world objects), Traps (scanning and disarming nearby hazards) and Sneak
+a kit or nearby world objects), Traps (scanning and disarming nearby hazards), Sneak
 (a persistent stealth stance with detection rolls, light- and movement-sensitive detection,
-and a sneak-attack bonus). Outdoorsman shapes overworld travel; Steal drives shelf,
+and a sneak-attack bonus) and Pace (walk at 1 AP a step or run at 2, which is louder
+under cover). Outdoorsman shapes overworld travel; Steal drives shelf,
 pocket and owned-container theft. Gambling sets the odds at Croup's dice table in the
 ruins: a 5–50 cap wager on a seven pays 4:1, or 5:1 when a Gambling 30 check lands,
 and a 5–10 cap boxcars wager on double sixes pays 26:1, or 30:1 on a Gambling 35 check.
@@ -721,6 +724,9 @@ only mean one tile ID.
 | `>` | `exit` | Exit | Travels when linked, otherwise explains it is unlinked |
 | `w` | `clean_water` | Clean water | Heals 2 HP each step |
 | `x` | `toxic_waste` | Toxic waste | 1 poison damage, +2 rads, Poisoned |
+| `▄` | `ash` | Ash drift | Walkable decoration; no effect |
+| `¨` | `weeds` | Dry weeds | Walkable decoration; no effect |
+| `¦` | `rebar` | Twisted rebar | Walkable decoration; no effect |
 
 Tile fields the engine understands: `solid`, `trap` (scanned and disarmed by the FIELD
 KIT), `opens` (tile it becomes), `needs` (item ID required to pass), `hack` (1–3, turns
@@ -1991,7 +1997,8 @@ the editors and `main.js`.
 | Field repair | FIELD KIT, 2 AP; Repair check scales with missing condition; restores `5 + Repair/8`; kits remain reliable |
 | World repair | FIELD KIT, 2 AP; repairs nearby tiles with `repair` set; optional `repairNeed` item is consumed on success |
 | Traps | Scan 1 AP at difficulty 20; disarm 2 AP at `20 + hurt×3` (cap 60); failure triggers the trap |
-| Sneak | Toggle on FIELD KIT; enemies make a Sneak check against their sight at range; environmental light, recent movement and facing affect detection (a turned back is harder to spot); unaware melee attacks deal ×2 damage |
+| Sneak | Toggle on FIELD KIT; enemies make a Sneak check against their sight at range; environmental light, recent movement and facing affect detection (a turned back is harder to spot; walking adds 15 to the difficulty, running 35); unaware melee attacks deal ×2 damage |
+| Pace | FIELD KIT Run/Walk, or `Shift` + a direction for one step; a running step costs 2 AP, a walk 1 |
 | Level cap | 100 |
 | XP to level | `round(20 + 14×lvl + 6×lvl^1.75)`; 40 at lvl 1, 20,394 at lvl 99 |
 | Total XP to 100 | 751,770 |

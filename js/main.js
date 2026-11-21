@@ -215,7 +215,7 @@
         if (ev.key === 'Escape') { ev.preventDefault(); WA.ui.close('trade'); }
         return;
       }
-      if (KEYS[ev.key]) { ev.preventDefault(); WA.turn.playerMove(KEYS[ev.key][0], KEYS[ev.key][1]); }
+      if (KEYS[ev.key]) { ev.preventDefault(); WA.turn.playerMove(KEYS[ev.key][0], KEYS[ev.key][1], null, ev.shiftKey); }
       else if (ev.key === ' ') { ev.preventDefault(); WA.turn.wait(); }
       else if (ev.key === 'h') WA.inv.stim();
       else if (ev.key === 'r') WA.inv.use('radaway');
