@@ -69,6 +69,7 @@
       if (b.dataset.tab) WA.pip.setTab(b.dataset.tab);
       else if (b.dataset.diff) { WA.settings.setDifficulty(b.dataset.diff); WA.pip.render(); }
       else if (b.dataset.speed) { WA.settings.setTurnSpeed(b.dataset.speed); WA.pip.render(); }
+      else if (b.dataset.sound) { WA.settings.setSound(b.dataset.sound === 'on'); WA.pip.render(); }
       else if (b.dataset.travel) WA.pip.travelTo(b.dataset.travel);
       else if (b.dataset.track) { WA.quests.track(b.dataset.track); WA.pip.render(); }
       else if (b.dataset.eq) WA.inv.equip(b.dataset.eq);

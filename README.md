@@ -133,8 +133,9 @@ the main menu:
   loading a save restores it and closes the menu.
 - **New game** closes the menu and starts a fresh character at the beginning of
   character creation. It does not auto-load an existing save.
-- **Options** changes animated effects, CRT scanlines/glow, fog of war and difficulty
-  immediately. Difficulty is also changeable in the Pip-Boy DATA screen.
+- **Options** changes sound effects, animated effects, CRT scanlines/glow, fog of war,
+  difficulty and world-turn pace immediately. Difficulty, pace and sound are also
+  changeable in the Pip-Boy DATA screen.
 
 There is no autosave read during boot anymore: the menu is always shown first, and the
 player explicitly chooses Load or New game. The intro reveals each line in turn, then
@@ -307,6 +308,12 @@ only: no rule reads a frame clock.
   so nothing from the old world keeps acting on the new one. Turning **Animate** off in
   Options (or setting your system to reduce motion) collapses the phase to instant, as
   before.
+- **It sounds like the wastes.** A shot, a hit, a kill, a pickup and a level-up each
+  have their own short sound, and all of them are synthesised in the browser with Web
+  Audio: there are no audio files, so the offline cache gains nothing to download. A
+  hit on you is lower and harder than a hit on anything else. **Sound effects** in
+  Options (or DATA on the Pip-Boy) turns the lot off, which is remembered on this
+  device, and a browser without Web Audio simply stays silent.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
   the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,
   RadAway, chem, Doctor's Bag or any other item from the Pip-Boy still spends its 2 AP

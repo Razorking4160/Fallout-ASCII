@@ -114,6 +114,7 @@
 /* 0.65.5: the world turn is slower, so each step lands and rests before the next. */
 /* 0.66.0: skip the rest of a world turn with '.', and a Slow/Normal/Fast pace setting. */
 /* 0.67.0: muzzle flashes, hit flashes, floating damage numbers and death bursts. */
+/* 0.68.0: synthesised shots, hits, deaths, pickups and level-ups with a Sound setting. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
@@ -142,8 +143,10 @@ const APP_FILES = [
   "./js/data/version.js",
   "./js/engine/ai.js",
   "./js/engine/lighting.js",
+  "./js/engine/fx.js",
   "./js/engine/pathfinding.js",
   "./js/engine/renderer.js",
+  "./js/engine/sfx.js",
   "./js/engine/turn.js",
   "./js/engine/ui.js",
   "./js/engine/util.js",
