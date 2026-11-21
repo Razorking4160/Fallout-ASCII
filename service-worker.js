@@ -126,6 +126,7 @@
 /* 0.75.1: the studio anchors loot, trade, dialogue, hacking, the other panels and the menu to the play pane too. */
 /* 0.76.0: melee swing and dismemberment marks, decorative ground tiles, a vault-door menu, and a walk/run pace for Sneak. */
 /* 0.77.0: an ASCII talking head for every speaker beside the dialogue text, blinking unless Animate is off. */
+/* 0.77.1: Pip-Boy, trade, loot and pickpocket keep their scroll position when an action redraws them. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
