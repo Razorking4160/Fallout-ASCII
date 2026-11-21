@@ -133,8 +133,8 @@ the main menu:
   loading a save restores it and closes the menu.
 - **New game** closes the menu and starts a fresh character at the beginning of
   character creation. It does not auto-load an existing save.
-- **Options** changes sound effects, animated effects, CRT scanlines/glow, fog of war,
-  difficulty and world-turn pace immediately. Difficulty, pace and sound are also
+- **Options** changes sound and ambience, animated effects, CRT scanlines/glow, fog of
+  war, difficulty and world-turn pace immediately. Difficulty, pace and sound are also
   changeable in the Pip-Boy DATA screen.
 
 There is no autosave read during boot anymore: the menu is always shown first, and the
@@ -311,8 +311,12 @@ only: no rule reads a frame clock.
 - **It sounds like the wastes.** A shot, a hit, a kill, a pickup and a level-up each
   have their own short sound, and all of them are synthesised in the browser with Web
   Audio: there are no audio files, so the offline cache gains nothing to download. A
-  hit on you is lower and harder than a hit on anything else. **Sound effects** in
-  Options (or DATA on the Pip-Boy) turns the lot off, which is remembered on this
+  hit on you is lower and harder than a hit on anything else. Each place also has its
+  own looping ambience, synthesised the same way: an electrical hum and moving air in
+  the vault, rain over low wind outside, wind through the ruins, and a wet bed with
+  the odd drip in the pumphouse. The beds cross-fade when you travel, hush while the
+  tab is hidden, and stay quiet under the boot menu. **Sound** in Options (or DATA on
+  the Pip-Boy) turns the lot off with a short fade, which is remembered on this
   device, and a browser without Web Audio simply stays silent.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
   the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,

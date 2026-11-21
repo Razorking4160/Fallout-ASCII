@@ -115,6 +115,7 @@
 /* 0.66.0: skip the rest of a world turn with '.', and a Slow/Normal/Fast pace setting. */
 /* 0.67.0: muzzle flashes, hit flashes, floating damage numbers and death bursts. */
 /* 0.68.0: synthesised shots, hits, deaths, pickups and level-ups with a Sound setting. */
+/* 0.69.0: a synthesised ambient loop per place, a map's ambience field, and a fade on mute. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
