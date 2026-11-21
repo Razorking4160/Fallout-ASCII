@@ -1164,7 +1164,10 @@ closes it. Character creation and the death screen are deliberately blocking: th
 a trait choice or a load/restart decision before play resumes. Eight tabs:
 
 ### STAT
-Your name, age and gender, then level out of 100 (XP to next, or `MAX`), the veteran
+Your name, age and gender over a small ASCII portrait, with the paper doll beside it:
+the worn armour and held weapon (each with its wear when the game tracks it) and all
+four limbs, which turn amber below 50 and red when crippled. Then level out of 100
+(XP to next, or `MAX`), the veteran
 bonus (+damage/+AP), unspent points, HP/max, AP/max, **Armor Class**, **Sequence**, RADS
 and the max-HP penalty, the chosen traits, active addictions and their withdrawals, the
 active status list (harmful in red, buffs in green, each with its numbers and remaining
