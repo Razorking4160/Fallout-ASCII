@@ -284,13 +284,16 @@ only: no rule reads a frame clock.
 - **Wait** gives up whatever AP is left: the world takes its turn at once and you start
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
-- **You can watch the world move.** When your AP runs out, the enemy phase plays one
+- **You can watch the world move.** When your AP runs out, the world's turn plays one
   action at a time, about a tenth of a second apart, redrawing the map and log between
-  them: a raider crossing four tiles walks them instead of jumping. Input is held until
-  the phase ends, exactly as an open panel holds it, so nothing can be spent mid-turn
-  and the Pip-Boy, Fire, VATS and the pad all wait. A death taken during the phase ends
-  the run as usual. Turning **Animate** off in Options (or setting your system to reduce
-  motion) collapses the phase to instant, as before.
+  them: a raider crossing four tiles walks them instead of jumping, and companions move
+  in the same beat once the enemies are done. Input is held until the phase ends,
+  exactly as an open panel holds it, so nothing can be spent mid-turn and the Pip-Boy,
+  Fire, VATS and the pad all wait. A death taken during the phase ends the run as
+  usual, and loading a save, starting a new game or travelling drops a phase in flight,
+  so nothing from the old world keeps acting on the new one. Turning **Animate** off in
+  Options (or setting your system to reduce motion) collapses the phase to instant, as
+  before.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
   the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,
   RadAway, chem, Doctor's Bag or any other item from the Pip-Boy still spends its 2 AP
