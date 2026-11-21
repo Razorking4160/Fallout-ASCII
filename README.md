@@ -261,7 +261,9 @@ buttons select a brush and the canvas is painted by dragging.
 
 ## Turns and actions
 
-The game is strictly turn-based; nothing is simulated on animation frames.
+The game is strictly turn-based; nothing is simulated on animation frames. The enemy
+phase is paced for readability — one action per beat — but the beat is presentation
+only: no rule reads a frame clock.
 
 - Every action spends **AP**. A step costs 1, a melee attack 3, a ranged shot 4, a
   throw 3, and a Stimpak, RadAway, chem, Doctor check or other item use 2. Bonus Rate of
@@ -282,6 +284,13 @@ The game is strictly turn-based; nothing is simulated on animation frames.
 - **Wait** gives up whatever AP is left: the world takes its turn at once and you start
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
+- **You can watch the world move.** When your AP runs out, the enemy phase plays one
+  action at a time, about a tenth of a second apart, redrawing the map and log between
+  them: a raider crossing four tiles walks them instead of jumping. Input is held until
+  the phase ends, exactly as an open panel holds it, so nothing can be spent mid-turn
+  and the Pip-Boy, Fire, VATS and the pad all wait. A death taken during the phase ends
+  the run as usual. Turning **Animate** off in Options (or setting your system to reduce
+  motion) collapses the phase to instant, as before.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
   the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,
   RadAway, chem, Doctor's Bag or any other item from the Pip-Boy still spends its 2 AP

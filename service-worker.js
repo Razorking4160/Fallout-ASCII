@@ -108,6 +108,7 @@
 /* 0.64.14: enemies spend their own AP on steps and attacks; Pip-Boy item use now pays AP. */
 /* 0.65.0: release cut for the AP turn system, enemy AP pools and Pip-Boy item AP costs. */
 /* 0.65.1: ranged enemies back off to a firing line, sidestep for a lost line, and hold after firing. */
+/* 0.65.2: the enemy phase plays one action per beat so movement is visible; input waits for it. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
