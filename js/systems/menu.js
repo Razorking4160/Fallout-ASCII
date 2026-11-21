@@ -155,6 +155,15 @@
       `<div class="menu-msg" style="min-height:34px">${U.esc(WA.settings.difficultyDef.desc)}</div>`;
   }
 
+  function speedRow() {
+    const cur = WA.settings.turnSpeed;
+    const buttons = WA.settings.SPEEDS.map(d =>
+      `<button type="button" data-speed="${d.id}" style="width:62px;font-size:12px;padding:5px 2px;` +
+      `${d.id === cur ? 'background:#ffb000;color:#15100a;border-color:#ffb000;' : ''}">${d.name}</button>`).join(' ');
+    return `<div class="menu-option"><span>World turn</span><span>${buttons}</span></div>` +
+      `<div class="menu-msg" style="min-height:34px">${U.esc(WA.settings.turnSpeedDef.desc)}</div>`;
+  }
+
   function showOptions() {
     clearTimer();
     SCREEN = 'options';
@@ -164,10 +173,11 @@
       `<div class="menu-title menu-title-small">OPTIONS</div>` +
       `<div class="menu-options">` +
       difficultyRow() +
+      speedRow() +
       optionRow('optAnim', 'Animated effects', WA.settings.anim) +
       optionRow('optCrt', 'CRT scanlines and glow', WA.settings.crt) +
       optionRow('optFog', 'Fog of war', WA.settings.fog) +
-      `</div><div class="menu-foot">Changes apply immediately and are remembered on this device. Difficulty affects new damage, hit rolls, finds and shop restock.</div></div>`);
+      `</div><div class="menu-foot">Changes apply immediately and are remembered on this device. Difficulty affects new damage, hit rolls, finds and shop restock. World turn sets how fast the enemies and companions act; during play, press . to finish the world's turn at once.</div></div>`);
   }
 
   async function loadPackFile(file) {
@@ -232,6 +242,11 @@
       const diff = e.target.closest('[data-diff]');
       if (diff) {
         WA.settings.setDifficulty(diff.dataset.diff);
+        return showOptions();
+      }
+      const speed = e.target.closest('[data-speed]');
+      if (speed) {
+        WA.settings.setTurnSpeed(speed.dataset.speed);
         return showOptions();
       }
       const b = e.target.closest('[data-menu]');

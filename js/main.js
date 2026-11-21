@@ -68,6 +68,7 @@
       if (!b) return;
       if (b.dataset.tab) WA.pip.setTab(b.dataset.tab);
       else if (b.dataset.diff) { WA.settings.setDifficulty(b.dataset.diff); WA.pip.render(); }
+      else if (b.dataset.speed) { WA.settings.setTurnSpeed(b.dataset.speed); WA.pip.render(); }
       else if (b.dataset.travel) WA.pip.travelTo(b.dataset.travel);
       else if (b.dataset.track) { WA.quests.track(b.dataset.track); WA.pip.render(); }
       else if (b.dataset.eq) WA.inv.equip(b.dataset.eq);
@@ -162,7 +163,11 @@
       if (/editing|forging|benching/.test(document.body.className)) return;
       if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName)) return;
       if (!WA.game.S) return;
-      if (busy()) return;
+      // The world's turn can take seconds; one press finishes the rest of it.
+      if (busy()) {
+        if (ev.key === '.') { ev.preventDefault(); WA.turn.skip(); }
+        return;
+      }
       if (WA.ui.isOpen('chargen')) return;
       if (WA.ui.isOpen('ending')) {
         if (ev.key === 'Escape') { ev.preventDefault(); WA.ui.close('ending'); }

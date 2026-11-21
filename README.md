@@ -290,7 +290,12 @@ only: no rule reads a frame clock.
   in the same beat once the enemies are done. Your own move gets that beat to itself
   first, and every body that changes cell slides in from where it was, so even a move
   that resolves in one frame — a sequence reaction, a step during a rest — reads as
-  walking rather than a teleport. Input is held until the phase ends,
+  walking rather than a teleport.
+- **You set the pace.** Options → World turn switches between Slow, Normal and Fast,
+  and it is remembered on this device (the same switch is on the Pip-Boy's DATA
+  screen, so you can change it mid-game). When a turn is taking too long, press
+  `.` and the rest of it resolves at once — the remaining enemy and companion
+  actions play out together and the board is painted once. Input is held until the phase ends,
   exactly as an open panel holds it, so nothing can be spent mid-turn and the Pip-Boy,
   Fire, VATS and the pad all wait. A death taken during the phase ends the run as
   usual, and loading a save, starting a new game or travelling drops a phase in flight,
