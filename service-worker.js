@@ -104,6 +104,7 @@
 /* 0.64.10: deliveries count carried supplies, pockets grey out during the fumble wait, shelves use the shared steal roll, dialogue caps stop at zero. */
 /* 0.64.11: dead-entity and dead-export cleanup, boolean sneak flag, container-only lock opening and a one-time legacy save scan. */
 /* 0.64.12: one modal registry now owns the panel list, pause check, backdrop and Escape routing. */
+/* 0.64.13: 3x3 action pad, a Fire target you can mark in VATS, and AP-length turns. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;

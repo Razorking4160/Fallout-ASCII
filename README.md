@@ -189,8 +189,9 @@ roughly centred.
   and the Pip-Boy lamp you always carry. Outdoor maps follow the in-game clock; indoor
   maps keep their authored ambient level. Rain and fog are visual overlays only.
 - **Message log** — the last four lines of anything that happened. Newest at the bottom.
-- **D-pad and action buttons** — Pip-Boy, Wait, Fire (shows the loaded ammo count),
-  VATS (shows current AP), and the four movement arrows.
+- **Action pad** — a 3×3 grid. Top row: VATS (shows `AP current/max`), Up, Pip-Boy.
+  Middle row: Left, Wait, Right. Bottom row: Fire (shows the loaded ammo count),
+  Down, Throw.
 - **Overlays** — the Pip-Boy, VATS, trade and dialogue panels are not separate pages:
   they are panels that replace/cover part of the Play view and *pause the world* while
   open.
@@ -239,7 +240,7 @@ Keyboard (Play tab, when focus is not in a text field):
 | Key | Action |
 | --- | --- |
 | Arrow keys / `W A S D` | Move or attack one step; you turn that way, and the chevron on the edge of your cell points that way |
-| Space | Wait one turn |
+| Space | Wait — give up the rest of your AP so the world takes its turn |
 | `H` | Use a Stimpak |
 | `R` | Use RadAway |
 | `F` | Fire the equipped ranged weapon |
@@ -262,10 +263,18 @@ buttons select a brush and the canvas is painted by dragging.
 
 The game is strictly turn-based; nothing is simulated on animation frames.
 
-- Any action that "uses" a turn — a step, an attack, eating, using a chem, a VATS shot,
-  waiting — advances one **world turn**.
-- At the start of each world turn you regain **+1 AP** (capped at `6 + Agility`), your
-  status effects tick once, then every enemy takes its turn in order.
+- Every action spends **AP**. A step costs 1, a melee attack 3, a ranged shot 4, a
+  throw 3, and a Stimpak, RadAway, chem, Doctor check or other item use 2. Bonus Rate of
+  Fire, Bonus HtH Attacks, Fast Shot and Bruiser move those numbers.
+- A player turn lasts as long as the AP pool (`6 + Agility`). You keep acting while AP
+  remains — two rifle shots, or one shot and three steps — and nothing refills the pool
+  in between.
+- When the last AP is spent, the pool refills and **every enemy takes one turn** in
+  sequence order. Your status effects and the enemies' own tick once per action, so a
+  bleed or a buff lasts the same two minutes it always did.
+- **Wait** gives up whatever AP is left: the world takes its turn at once and you start
+  the next one with a full pool, even when AP is already empty.
+- Each action advances the clock by two minutes whether or not the enemies act.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes, so
   enemies do not act and statuses do not tick. Closing them resumes without advancing
   time.
@@ -324,7 +333,7 @@ Test mode skips creation, and saves made before traits existed load without it (
 | Chem Reliant | Chems last 50% longer | Addiction chance ×2 | Chem durations ×1.5 and addiction rolls are doubled. |
 | Chem Resistant | Addiction chance halved | Chems last half as long | Chem durations ×0.5 and addiction rolls are halved. |
 | Fast Metabolism | +2 HP from healing | +25% poison and radiation damage | Stimpaks, healing items and healing tiles restore 2 more; poison/rad damage ×1.25. |
-| Fast Shot | −1 AP on weapon attacks | No aimed shots | VATS costs 1 less AP; only the torso is targetable. Ordinary attacks cost no AP, so this is a VATS adaptation. |
+| Fast Shot | −1 AP on weapon attacks | No aimed shots | Every attack costs 1 less AP (Fire, melee and VATS); VATS offers only the torso. |
 | Finesse | +10% critical chance | −30% non-critical damage | Added to the crit roll; non-critical hits ×0.7. Criticals are unaffected. |
 | Gifted | +1 to all SPECIAL | −10 to all skills, −5 skill points per level | Applied once (caps at 10); skill values −10; starting and per-level points reduced by 5. |
 | Good Natured | +15 First Aid, Doctor, Speech, Barter | −10 to combat skills | Skill modifiers, applied live. |
@@ -523,7 +532,7 @@ effects:
 | Chem Resistant | 6 | EN 6 | 1 | Half the normal addiction chance |
 | Heave Ho! | 6 | ST 6 | 2 | +2 throwing range per rank |
 | Better Criticals | 9 | PE 6, LK 6 | 1 | Criticals deal ×2.5 instead of ×2 |
-| Bonus Rate of Fire | 9 | PE 6, IN 6, AG 7 | 1 | Ranged VATS shots cost 1 less AP |
+| Bonus Rate of Fire | 9 | PE 6, IN 6, AG 7 | 1 | Ranged attacks cost 1 less AP (Fire and VATS) |
 | Scrounger | 9 | LK 6 | 1 | Ammo found is 25% more plentiful |
 | Stonewall | 9 | EN 6 | 1 | Knockdowns and knockbacks cannot move you |
 | Dodger | 9 | AG 6 | 1 | +5 Armour Class |
@@ -536,7 +545,7 @@ effects:
 | Action Boy | 12 | AG 5 | 2 | +1 max AP per rank |
 | Lifegiver | 12 | EN 4 | 3 | +4 max HP per rank |
 | Tag! | 12 | — | 1 | One extra tag slot |
-| Bonus HtH Attacks | 12 | AG 6 | 1 | Melee/unarmed VATS shots cost 1 less AP |
+| Bonus HtH Attacks | 12 | AG 6 | 1 | Melee/unarmed attacks cost 1 less AP (bump and VATS) |
 | Sniper | 12 | PE 8, AG 8 | 1 | +10% ranged hit chance at 5+ tiles |
 | Silent Death | 18 | AG 10 | 1 | Sneak attacks deal ×4 instead of ×2 |
 
@@ -791,9 +800,13 @@ resistance for the damage type. Every swing wears the weapon.
 
 ### Ranged fire (`Fire`)
 
-Requires a weapon whose `range` is 2 or more. Fire picks the nearest visible valid
-target within range (`los` through walls is refused), spends one round, applies weapon
-wear and a possible jam, then hits with
+Requires a weapon whose `range` is 2 or more. Fire aims at the enemy you marked with
+**Set** in VATS; with nothing marked it picks the nearest visible valid target within
+range (`los` through walls is refused). A marked enemy that steps out of range is
+refused rather than silently swapped, and the mark drops when it dies. The marked enemy
+wears a red ring on the map and is named `TGT …` in the status bar. The shot spends
+**4 AP** (3 for melee, less with the attack-cost perks), one round, applies weapon wear
+and a possible jam, then hits with
 `chance = clamp(combat skill + 30 - 5×(distance-1) + trait hit mod − 20 per crippled arm, 5, 95)`. Small Guns
 covers ordinary pistols/rifles, Energy Weapons covers lasers and plasma, and Big Guns
 covers heavy weapons. One Hander's +20/−40 applies through each weapon's `hands` field.
@@ -866,7 +879,7 @@ the **nearest visible enemy within that item's `range`** (no free aiming):
   XP, drops and quest credit), and suffers the item's `onHit` status.
 - **You are caught in your own blast too** if you are inside the radius: armour,
   resistances and the Fortified buff apply, and your armour wears from it.
-- The item is consumed, a world turn passes, and having no target or nothing to throw
+- The item is consumed and the throw spends 3 AP; having no target or nothing to throw
   costs nothing.
 - Frag Grenades deal explosive damage; Molotovs deal fire damage and set anything caught
   Burning.
@@ -912,7 +925,8 @@ about in the status bar below 25%.
 
 ### Enemies, loot and XP
 
-Each enemy gets one turn: tick its statuses, respect `slow`/cooldown, then act. Ranged
+Each enemy gets one turn per player phase: its statuses already ticked during your
+actions, so it only respects `slow`/cooldown, then acts. Ranged
 attackers keep their distance; melee ones close in. Kills award the entity's
 level-scaled XP adjusted by Intelligence, roll their level-scaled `caps` range into your
 wallet, apply quest kill goals, and drop their `drop` item onto the tile they died on if
@@ -932,13 +946,15 @@ The death screen therefore reloads the state from just before the fatal action.
 ## VATS
 
 `V` or the VATS button opens a two-step overlay. It costs **3 AP per shot (melee)** or
-**4 AP per shot (ranged)** — deducted per shot, so you can chain several in one turn.
+**4 AP per shot (ranged)** — the same cost as Fire, so you can chain several before the
+enemies act.
 Bonus Rate of Fire reduces the ranged cost to 3, and **Fast Shot** reduces whichever
 category applies by 1 more (minimum 1 AP). Fast Shot also removes every body part except
 **Torso**: no aimed shots at all.
 
 1. Target list: every non-NPC enemy in weapon range with line of sight, showing HP and
-   any statuses.
+   any statuses. **Aim** opens its body parts; **Set** marks it as the Fire target and
+   closes VATS without spending AP, which is the no-called-shot way to pick an enemy.
 2. Body part: each shows its hit chance
    `clamp(combat skill + 30 - 5×(distance-1) - partPenalty + trait hit mod − 20 per crippled arm, 5, 95)`.
    Fast Shot skips this step and always fires at the torso.
@@ -950,9 +966,10 @@ category applies by 1 more (minimum 1 AP). Fast Shot also removes every body par
 | L./R. arm | 10 | ×0.8 damage, target fumbles (+30% chance to miss you next turn) |
 | L./R. leg | 5 | ×0.6 damage, target slowed 4 turns |
 
-Shots still wear the weapon, can jam, spend ammo and miss. Each shot advances a world
-turn, so enemies act between shots. VATS uses the selected ammo variant but fires one
-round per shot; use **Ammo** in the header to change it.
+Shots still wear the weapon, can jam, spend ammo and miss. The shot spends its AP, so
+the enemy phase only starts when the pool runs out; press **Wait** to end the turn
+early. VATS uses the selected ammo variant but fires one round per shot; use **Ammo** in
+the header to change it.
 
 ---
 
@@ -1250,7 +1267,7 @@ the map once their
 companion has joined. The roster lives on the save as `S.party` with HP, orders and a
 bleed-out counter; the ally body itself is never saved — it is respawned beside you on
 load, travel and map start, so no cached map can duplicate a companion. Companions act
-after the enemies on every world turn: **Follow** trails you and hits what is already
+after the enemies at the end of every player phase: **Follow** trails you and hits what is already
 adjacent, **Hold** stays put, **Attack** closes on the nearest visible hostile (Vera
 fires at range) and **Fall back** widens the distance without swinging. Enemies go for
 whichever of you and the companions is closest. A companion at 0 HP goes **down** and
@@ -1884,7 +1901,7 @@ the editors and `main.js`.
 
 | Thing | Value |
 | --- | --- |
-| AP | start `6 + A`, `+1` per world turn; max `6 + Agility + ⌊(lvl-1)/5⌋ + Action Boy + Bruiser − Jet withdrawal − crippled legs` (min 1) |
+| AP | `6 + A` per player turn, refilled when the pool runs out; max `6 + Agility + ⌊(lvl-1)/5⌋ + Action Boy + Bruiser − Jet withdrawal − crippled legs` (min 1) |
 | Sight | `8 + (P-5)`, using effective Perception (Night Person and withdrawal) |
 | Max HP | `20 + (effective E-5)*4 + (lvl-1)*3 + veteran HP + Lifegiver - rads` (min 5) |
 | Carry weight | `25 + 25 × effective Strength`, −25 with Small Frame |
@@ -1892,7 +1909,7 @@ the editors and `main.js`.
 | Enemy to-hit | `clamp(75 + accuracy + 5 ranged − AC − 30 fumbled, 5, 95)` |
 | Sequence | `2 × effective Perception + 5 Kamikaze` |
 | Addiction | Buffout 40%, Jet 40%, Med-X 20%; Reliant ×2, Resistant ×0.5 |
-| Cure addiction | Doctor button, `clamp(30 + Doctor, 5, 90)%`, one turn per attempt |
+| Cure addiction | Doctor button, `clamp(30 + Doctor, 5, 90)%`, 2 AP per attempt |
 | First Aid | FIELD KIT, 1 AP; check at difficulty 20; heals `4 + First Aid/10` HP |
 | Doctor | FIELD KIT, 2 AP; check at difficulty 25 (+5 per extra crippled limb being treated); heals `6 + Doctor/6` HP, removes poison, flushes `max(2, Doctor/4)` rads; with a Doctor's Bag also sets every crippled limb |
 | Field repair | FIELD KIT, 2 AP; Repair check scales with missing condition; restores `5 + Repair/8`; kits remain reliable |
