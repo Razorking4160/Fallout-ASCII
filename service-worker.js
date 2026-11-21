@@ -123,6 +123,7 @@
 /* 0.73.0: a Pip-Boy portrait with an armour, weapon and limb paper doll, and Sound hints that name the music. */
 /* 0.74.0: every Pip-Boy tab fills the screen, with labelled sections and dotted row rules. */
 /* 0.75.0: the studio's Pip-Boy is anchored to its play pane, and the DATA and SKILL sections lost their redundant boxes. */
+/* 0.75.1: the studio anchors loot, trade, dialogue, hacking, the other panels and the menu to the play pane too. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;

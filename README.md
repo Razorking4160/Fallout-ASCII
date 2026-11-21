@@ -1163,8 +1163,8 @@ Every dismissible panel has a visible `×` close control, and tapping the backdr
 closes it. Character creation and the death screen are deliberately blocking: they need
 a trait choice or a load/restart decision before play resumes. The panel opens to the full
 height of the screen, so every tab fills the same frame: the tab bar stays put and the
-body scrolls under it (in the studio's play pane the panel is anchored to the pane
-instead of the window, so it never covers the tabs). Each screen is split into labelled
+body scrolls under it (in the studio's play pane every panel, the backdrop and the menu
+are anchored to the pane instead of the window, so they never cover the tabs). Each screen is split into labelled
 dashed groups (LEVEL, VITALS, REPUTATION, SPECIAL, SETTINGS, SAVES…) with a dotted rule
 between the rows inside a group, so a long list reads as blocks instead of one wall of
 text. Eight tabs:
