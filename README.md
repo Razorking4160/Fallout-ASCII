@@ -285,9 +285,12 @@ only: no rule reads a frame clock.
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
 - **You can watch the world move.** When your AP runs out, the world's turn plays one
-  action at a time, about a tenth of a second apart, redrawing the map and log between
+  action at a time, about a seventh of a second apart, redrawing the map and log between
   them: a raider crossing four tiles walks them instead of jumping, and companions move
-  in the same beat once the enemies are done. Input is held until the phase ends,
+  in the same beat once the enemies are done. Your own move gets that beat to itself
+  first, and every body that changes cell slides in from where it was, so even a move
+  that resolves in one frame — a sequence reaction, a step during a rest — reads as
+  walking rather than a teleport. Input is held until the phase ends,
   exactly as an open panel holds it, so nothing can be spent mid-turn and the Pip-Boy,
   Fire, VATS and the pad all wait. A death taken during the phase ends the run as
   usual, and loading a save, starting a new game or travelling drops a phase in flight,
