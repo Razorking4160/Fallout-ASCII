@@ -314,10 +314,11 @@ only: no rule reads a frame clock.
   hit on you is lower and harder than a hit on anything else. Each place also has its
   own looping ambience, synthesised the same way: an electrical hum and moving air in
   the vault, rain over low wind outside, wind through the ruins, and a wet bed with
-  the odd drip in the pumphouse. The beds cross-fade when you travel, hush while the
-  tab is hidden, and stay quiet under the boot menu. **Sound** in Options (or DATA on
-  the Pip-Boy) turns the lot off with a short fade, which is remembered on this
-  device, and a browser without Web Audio simply stays silent.
+  the odd drip in the pumphouse. The beds cross-fade when you travel, duck for a
+  moment under a shot or a kill so the hit stays clear, hush while the tab is hidden,
+  and stay quiet under the boot menu. **Sound** in Options (or DATA on the Pip-Boy)
+  turns the lot off with a short fade, which is remembered on this device, and a
+  browser without Web Audio simply stays silent.
 - Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
   the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,
   RadAway, chem, Doctor's Bag or any other item from the Pip-Boy still spends its 2 AP
@@ -1816,6 +1817,9 @@ fifteen or so rounds, and the pumphouse mirelurk is a real fight rather than a f
 - `amb` 0–1 sets ambient light; `bg` sets the canvas background.
 - `indoor` keeps the map on its authored ambient level instead of following the clock.
 - `weather` is `none`, `rain` or `fog`; it is visual only and is suppressed on indoor maps.
+- `ambience` names the synthesised sound bed — `hum`, `rain`, `wind` or `water`; leaving it
+  empty, or naming a bed this build does not have, falls back to `indoor` and `weather`.
+  The G.E.C.K. map editor sets it with **Sound bed**, and it travels in a content pack.
 
 The editor's **Export** writes `{id, ...map}`; **Export all** writes `{v:2, maps:{id:map}}`;
 **Ship to code** writes `js/data/maps-authored.js` assigning `WA.AUTHORED = {id: map}`,
