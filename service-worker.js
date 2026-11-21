@@ -105,6 +105,7 @@
 /* 0.64.11: dead-entity and dead-export cleanup, boolean sneak flag, container-only lock opening and a one-time legacy save scan. */
 /* 0.64.12: one modal registry now owns the panel list, pause check, backdrop and Escape routing. */
 /* 0.64.13: 3x3 action pad, a Fire target you can mark in VATS, and AP-length turns. */
+/* 0.64.14: enemies spend their own AP on steps and attacks; Pip-Boy item use now pays AP. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;

@@ -272,12 +272,19 @@ The game is strictly turn-based; nothing is simulated on animation frames.
 - When the last AP is spent, the pool refills and **every enemy takes one turn** in
   sequence order. Your status effects and the enemies' own tick once per action, so a
   bleed or a buff lasts the same two minutes it always did.
+- **Enemies have AP too.** Each hostile carries its own pool — `round(Sequence / 2) + 2`,
+  clamped to 3–8 — and spends it in its turn: 1 per step, 4 per attack, and never more
+  than one attack before you act again. A quick raider crosses five or six tiles while a
+  slow one shuffles three. A knockdown or an enemy's `rate` cooldown still costs it the
+  whole turn. Your own pool (`6 + Agility`) stays larger, so you can still outrun them.
 - **Wait** gives up whatever AP is left: the world takes its turn at once and you start
   the next one with a full pool, even when AP is already empty.
 - Each action advances the clock by two minutes whether or not the enemies act.
-- Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes, so
-  enemies do not act and statuses do not tick. Closing them resumes without advancing
-  time.
+- Opening the Pip-Boy, a dialogue or a trade screen **pauses**: no world turn passes while
+  the panel is up, so closing it does not hand the enemies a free move. Using a Stimpak,
+  RadAway, chem, Doctor's Bag or any other item from the Pip-Boy still spends its 2 AP
+  (as does the Doctor check), so the panel is not a free heal: if that empties your pool,
+  the enemies take their turn with the panel still open.
 - The SKILL screen's **REST** panel spends whole hours instead of turns: **Wait 1h**
   passes an hour, **Rest 4h/8h** also recovers 8% of maximum HP an hour. Each hour
   gives every enemy one action and ticks your status effects once, so a hostile that
@@ -371,7 +378,9 @@ attack, not the old flat dodge percentage.
 **Sequence** is `2 × effective Perception`, plus 5 with Kamikaze. A high-sequence enemy
 that is already in attack range and line of sight gets one reaction before your action;
 it then skips its normal action that round. The enemy phase itself is sorted by Sequence,
-so faster enemies move and shoot before slower ones. Heavy weapons and armour do not
+so faster enemies move and shoot before slower ones. Sequence also sets how many AP an
+enemy has — `round(Sequence / 2) + 2`, clamped to 3–8 — so the same fast enemy covers
+more ground. Heavy weapons and armour do not
 change Sequence in this build.
 
 ### Addiction and withdrawal
