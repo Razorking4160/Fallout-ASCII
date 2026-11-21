@@ -41,6 +41,14 @@ while IFS= read -r file; do
   fi
 done <<< "$FILES"
 
+# main.js is deliberately different, so it is not compared above. The studio's
+# copy boots the editors; a whole-tree copy from the game silently kills every
+# tab, which happened once, so insist its boot is still there.
+if ! grep -q "WA\.editor\.init" "$STUDIO/js/main.js" 2>/dev/null; then
+  echo "studio/js/main.js has lost its editor boot (WA.editor.init)"
+  drift=1
+fi
+
 if [ "$drift" -ne 0 ]; then
   echo
   echo "Studio is out of sync — copy the files listed above into $STUDIO/."

@@ -117,6 +117,7 @@
 /* 0.68.0: synthesised shots, hits, deaths, pickups and level-ups with a Sound setting. */
 /* 0.69.0: a synthesised ambient loop per place, a map's ambience field, and a fade on mute. */
 /* 0.70.0: table-driven place beds, gunfire ducks the bed, a louder mix, and a map keeps its ambience in the editor and packs. */
+/* 0.70.1: one ramp helper for mute, tab hush and duck, and a limiter that degrades to a plain output. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
