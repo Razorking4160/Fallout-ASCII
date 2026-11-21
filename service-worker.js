@@ -119,6 +119,7 @@
 /* 0.70.0: table-driven place beds, gunfire ducks the bed, a louder mix, and a map keeps its ambience in the editor and packs. */
 /* 0.70.1: one ramp helper for mute, tab hush and duck, and a limiter that degrades to a plain output. */
 /* 0.71.0: a synthesised title theme on the boot menu, hung off the shared sound bus. */
+/* 0.72.0: a quieter music track for play, cross-fading with the title theme. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
