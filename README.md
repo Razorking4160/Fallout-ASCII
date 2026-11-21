@@ -1252,8 +1252,13 @@ Sentinel ending once it has been earned, and the **BUILD** stamp with the matchi
 
 ## NPCs, dialogue and quests
 
-Walking into a friendly NPC (`talk: true`) opens their conversation panel. Dialogue
-trees are data:
+Walking into a friendly NPC (`talk: true`) opens their conversation panel. A small
+ASCII bust of the speaker sits beside their words — each shipped character has their
+own, a talker with no portrait gets a hooded settler, and the eyes blink on a slow
+per-speaker beat unless Animate is off or the system asks for reduced motion.
+`WA.heads` owns the art and `WA.heads.html(id)` renders it.
+
+Dialogue trees are data:
 
 - Each tree has a `root` (constant or function of context) and named `nodes`.
 - A node has `text` (string or function of context), `opts`, and optionally `once`
