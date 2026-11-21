@@ -314,7 +314,9 @@ only: no rule reads a frame clock.
   hit on you is lower and harder than a hit on anything else. Each place also has its
   own looping ambience, synthesised the same way: an electrical hum and moving air in
   the vault, rain over low wind outside, wind through the ruins, and a wet bed with
-  the odd drip in the pumphouse. The beds cross-fade when you travel, duck for a
+  the odd drip in the pumphouse. The boot title has its own theme, a slow D-minor
+  motif over a drone and a chord pad, which stops the moment play starts. The beds
+  cross-fade when you travel, duck for a
   moment under a shot or a kill so the hit stays clear, hush while the tab is hidden,
   and stay quiet under the boot menu. **Sound** in Options (or DATA on the Pip-Boy)
   turns the lot off with a short fade, which is remembered on this device, and a

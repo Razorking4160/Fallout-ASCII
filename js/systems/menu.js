@@ -178,7 +178,7 @@
       optionRow('optAnim', 'Animated effects', WA.settings.anim) +
       optionRow('optCrt', 'CRT scanlines and glow', WA.settings.crt) +
       optionRow('optFog', 'Fog of war', WA.settings.fog) +
-      `</div><div class="menu-foot">Changes apply immediately and are remembered on this device. Difficulty affects new damage, hit rolls, finds and shop restock. World turn sets how fast the enemies and companions act; during play, press . to finish the world's turn at once. Sound effects and each place's ambience are synthesised on this device, so nothing is downloaded.</div></div>`);
+      `</div><div class="menu-foot">Changes apply immediately and are remembered on this device. Difficulty affects new damage, hit rolls, finds and shop restock. World turn sets how fast the enemies and companions act; during play, press . to finish the world's turn at once. Sound effects, each place's ambience and the title theme are synthesised on this device, so nothing is downloaded.</div></div>`);
   }
 
   async function loadPackFile(file) {
@@ -286,6 +286,7 @@
     OPEN = true;
     // The title and its menus are quiet; the place comes back when play starts.
     if (WA.sfx && WA.sfx.ambient) WA.sfx.ambient(null);
+    if (WA.music) WA.music.sync();
     box.hidden = false;
     document.body.classList.add('menu-open');
     bind();
@@ -300,6 +301,7 @@
     const box = el();
     if (box) box.hidden = true;
     document.body.classList.remove('menu-open');
+    if (WA.music) WA.music.sync();
   }
 
   WA.menu = { open, close, showMenu, isOpen: () => OPEN };

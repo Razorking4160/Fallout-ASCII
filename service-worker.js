@@ -118,6 +118,7 @@
 /* 0.69.0: a synthesised ambient loop per place, a map's ambience field, and a fade on mute. */
 /* 0.70.0: table-driven place beds, gunfire ducks the bed, a louder mix, and a map keeps its ambience in the editor and packs. */
 /* 0.70.1: one ramp helper for mute, tab hush and duck, and a limiter that degrades to a plain output. */
+/* 0.71.0: a synthesised title theme on the boot menu, hung off the shared sound bus. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
@@ -147,6 +148,7 @@ const APP_FILES = [
   "./js/engine/ai.js",
   "./js/engine/lighting.js",
   "./js/engine/fx.js",
+  "./js/engine/music.js",
   "./js/engine/pathfinding.js",
   "./js/engine/renderer.js",
   "./js/engine/sfx.js",
