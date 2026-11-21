@@ -106,6 +106,7 @@
 /* 0.64.12: one modal registry now owns the panel list, pause check, backdrop and Escape routing. */
 /* 0.64.13: 3x3 action pad, a Fire target you can mark in VATS, and AP-length turns. */
 /* 0.64.14: enemies spend their own AP on steps and attacks; Pip-Boy item use now pays AP. */
+/* 0.65.0: release cut for the AP turn system, enemy AP pools and Pip-Boy item AP costs. */
 importScripts("./js/data/version.js");
 
 const CACHE_NAME = "wasteland-ascii-v" + self.WA_VERSION;
